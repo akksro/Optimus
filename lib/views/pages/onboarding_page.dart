@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:optimus/models/models.dart';
+import 'package:optimus/resources/resources.dart';
 import 'package:optimus/views/pages/dashboard.dart';
-import '../../models/models.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -10,29 +11,41 @@ class OnboardingPage extends StatefulWidget {
   _OnboardingPageState createState() => _OnboardingPageState();
 }
 
+List<Onboarding> screens = <Onboarding>[
+  Onboarding(
+    title: "Find friend not just a roommate!",
+    image: '${Constants.imagePath}/sample.png',
+    description:
+        "What fun could we have more than having a roommate with a similar interest.",
+  ),
+  Onboarding(
+    title: "Looking for a safe space to leave",
+    image: '${Constants.imagePath}/FadeCircle.png',
+    description: "We have ample amount of apartment waiting for you.",
+  ),
+  Onboarding(
+    title: "A whole lot of opportunity to find the right things",
+    image: '${Constants.imagePath}/FadeCircle.png',
+    description:
+        "Provide affordable deals. Discover, chat, reach and settle in a breeze.",
+  )
+];
+
 class _OnboardingPageState extends State<OnboardingPage> {
-  final PageController _pageController = PageController(initialPage: 0);
+  late final PageController _pageController;
   int _currentPage = 0;
 
-  List<Onboarding> screens = <Onboarding>[
-    Onboarding(
-        title: "Find friend not just a roommate!",
-        image: 'assets/images/sample.png',
-        description:
-            "What fun could we have more than having a roommate with a similar interest.",
-        background: Colors.white),
-    Onboarding(
-        title: "Looking for a safe space to leave",
-        image: 'assets/images/FadeCircle.png',
-        description: "We have ample amount of apartment waiting for you.",
-        background: Colors.white),
-    Onboarding(
-        title: "A whole lot of opportunity to find the right things",
-        image: 'assets/images/FadeCircle.png',
-        description:
-            "Provide affordable deals. Discover, chat, reach and settle in a breeze.",
-        background: Colors.white)
-  ];
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   List<Widget> _buildPageIndicator() {
     List<Widget> list = [];
@@ -50,12 +63,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
         width: isActive ? 24.0 : 16.0,
         decoration: isActive
             ? BoxDecoration(
-                color: Colors.black,
+                color: Colours.primary,
                 borderRadius: BorderRadius.circular(100),
               )
             : BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                border: Border.all(width: 1, color: Colors.black)));
+                border: Border.all(width: 1, color: Colours.primary)));
   }
 
   _gotoDashboard() => Navigator.pushReplacement<void, void>(
@@ -102,7 +115,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                     width: 250.0,
                                   ),
                                 ),
-                                const SizedBox(height: 40.0),
+                                Gaps.vGap40,
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 20.0),
@@ -111,26 +124,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                     children: _buildPageIndicator(),
                                   ),
                                 ),
-                                const SizedBox(height: 10.0),
+                                Gaps.vGap10,
                                 Center(
                                   child: Text(
                                     screens[index].title,
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Colors.black,
+                                      color: Colours.primaryFont,
                                       fontFamily: 'CM Sans Serif',
                                       fontSize: 26.0,
                                       height: 1.5,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 20.0),
+                                Gaps.vGap20,
                                 Center(
                                   child: Text(
                                     screens[index].description,
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Colors.grey,
+                                      color: Colours.secondaryFont,
                                       fontFamily: 'Poppins',
                                       fontSize: 18.0,
                                       height: 1.2,
@@ -152,18 +165,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 child: GestureDetector(
                   child: Center(
                     child: ElevatedButton(
-                        child: const Text("Get Started"),
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.black),
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                    side: const BorderSide(
-                                        color: Colors.black)))),
-                        onPressed:  _gotoDashboard,
-                      ),
+                      child: const Text(Constants.getStarted),
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colours.primary),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: const BorderSide(
+                                          color: Colours.primary)))),
+                      onPressed: _gotoDashboard,
+                    ),
                   ),
                 ),
               )
@@ -176,20 +189,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     TextButton(
                         onPressed: _gotoDashboard,
                         child: const Text(
-                          "Skip",
-                          style: TextStyle(color: Colors.black),
+                          Constants.skip,
+                          style: TextStyle(color: Colours.primaryFont),
                         )),
                     ElevatedButton(
-                      child: const Text("Next"),
+                      child: const Text(Constants.next),
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
+                              MaterialStateProperty.all<Color>(Colours.primary),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18.0),
                                       side: const BorderSide(
-                                          color: Colors.black)))),
+                                          color: Colours.primary)))),
                       onPressed: () {
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 500),

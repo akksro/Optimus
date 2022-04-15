@@ -4,12 +4,10 @@ class Onboarding {
   String title;
   String image;
   String description;
-  Color background;
 
   Onboarding({
     required this.title,
     required this.image,
     required this.description,
-    required this.background,
   });
 }
