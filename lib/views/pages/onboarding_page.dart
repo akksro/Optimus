@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:optimus/models/models.dart';
 import 'package:optimus/resources/resources.dart';
 import 'package:optimus/views/pages/dashboard.dart';
 
@@ -11,28 +10,10 @@ class OnboardingPage extends StatefulWidget {
   _OnboardingPageState createState() => _OnboardingPageState();
 }
 
-List<Onboarding> screens = <Onboarding>[
-  Onboarding(
-    title: "Find friend not just a roommate!",
-    image: '${Constants.imagePath}/sample.png',
-    description:
-        "What fun could we have more than having a roommate with a similar interest.",
-  ),
-  Onboarding(
-    title: "Looking for a safe space to leave",
-    image: '${Constants.imagePath}/FadeCircle.png',
-    description: "We have ample amount of apartment waiting for you.",
-  ),
-  Onboarding(
-    title: "A whole lot of opportunity to find the right things",
-    image: '${Constants.imagePath}/FadeCircle.png',
-    description:
-        "Provide affordable deals. Discover, chat, reach and settle in a breeze.",
-  )
-];
-
 class _OnboardingPageState extends State<OnboardingPage> {
   late final PageController _pageController;
+
+  /// State to hold the active screen ibdex
   int _currentPage = 0;
 
   @override
@@ -47,9 +28,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
     super.dispose();
   }
 
+  /// Indicator widget to represent the active screen from the onboarding list
   List<Widget> _buildPageIndicator() {
     List<Widget> list = [];
-    for (int i = 0; i < screens.length; i++) {
+    for (int i = 0; i < Constants.onbording.length; i++) {
       list.add(i == _currentPage ? _indicator(true) : _indicator(false));
     }
     return list;
@@ -87,7 +69,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: PageView.builder(
-                    itemCount: screens.length,
+                    itemCount: Constants.onbording.length,
                     controller: _pageController,
                     physics: const ClampingScrollPhysics(),
                     onPageChanged: (int index) {
@@ -109,7 +91,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 Center(
                                   child: Image(
                                     image: AssetImage(
-                                      screens[index].image,
+                                      Constants.onbording[index].image,
                                     ),
                                     height: 250.0,
                                     width: 250.0,
@@ -127,7 +109,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 Gaps.vGap10,
                                 Center(
                                   child: Text(
-                                    screens[index].title,
+                                    Constants.onbording[index].title,
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
                                       color: Colours.primaryFont,
@@ -140,7 +122,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 Gaps.vGap20,
                                 Center(
                                   child: Text(
-                                    screens[index].description,
+                                    Constants.onbording[index].description,
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
                                       color: Colours.secondaryFont,
@@ -158,7 +140,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     }),
               ),
             )),
-        bottomSheet: _currentPage == screens.length - 1
+        bottomSheet: _currentPage == Constants.onbording.length - 1
             ? SizedBox(
                 height: 100.0,
                 width: double.infinity,

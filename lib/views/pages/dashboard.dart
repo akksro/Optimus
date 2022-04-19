@@ -12,7 +12,10 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(child: Center(child: Text("Welcome to " + Constants.appName),)),
+      body: SafeArea(
+          child: Center(
+        child: Text("Welcome to " + Constants.appName),
+      )),
     );
   }
 }
