@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:optimus/resources/resources.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({Key? key}) : super(key: key);
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,18 +56,18 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Gaps.vGap20,
-              GridView(
+              // GridView(
 
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  crossAxisCount: 2,
-                  childAspectRatio: 1
-                ),
-                children: [
-                   Text('Test'),
-                ],
-              )
+              //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              //     mainAxisSpacing: 10,
+              //     crossAxisSpacing: 10,
+              //     crossAxisCount: 2,
+              //     childAspectRatio: 1
+              //   ),
+              //   children: [
+              //      Text('Test'),
+              //   ],
+              // )
             ],
           ),
         ),

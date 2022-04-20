@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:optimus/resources/resources.dart';
-import 'package:optimus/views/pages/dashboard.dart';
+import 'package:optimus/views/pages/home_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -56,7 +56,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   _gotoDashboard() => Navigator.pushReplacement<void, void>(
         context,
         MaterialPageRoute<void>(
-          builder: (BuildContext context) => const Dashboard(),
+          builder: (BuildContext context) => const HomePage(),
         ),
       );
 
