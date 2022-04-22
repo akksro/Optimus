@@ -4,12 +4,12 @@ class MenuItem {
   String title;
   String description;
   Color bgColor;
-  IconData icon;
+  String image;
 
   MenuItem({
     required this.title,
     required this.description,
     required this.bgColor,
-    required this.icon,
+    required this.image,
   });
 }

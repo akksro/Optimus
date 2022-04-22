@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:optimus/models/bottombarmenuitems.dart';
 import 'package:optimus/models/menuitem.dart';
 import 'package:optimus/models/models.dart';
+import 'package:optimus/resources/colours.dart';
 
 class Constants {
   // General Stirngs
@@ -13,7 +15,7 @@ class Constants {
   static const String greeting = 'Good Day';
   static const String greetingMessage =
       'Some message to user, which should inspire him/her to use the application';
-  static const String serviceWeProvide = 'Services we provide';
+  static const String serviceWeProvide = 'Experience our top services';
 
   // Path
   static const String imagePath = 'assets/images';
@@ -43,24 +45,51 @@ class Constants {
         title: "Roomates",
         description:
             "Are you finding for any roomates? or Looking for any roomates?",
-        bgColor: const Color(0xfffdedd2),
-        icon: Icons.room),
+        bgColor: Colours.secondary,
+        image: 'roommates.svg'),
     MenuItem(
         title: "Apartment",
         description:
             "Are you finding for any apartment? or Do you have any apartment?",
-        bgColor: const Color(0xffD1FBEA),
-        icon: Icons.house),
+        bgColor: Colours.secondary,
+        image: 'apartment.svg'),
     MenuItem(
         title: "Buy / Sell item",
         description:
             "Do you want to sell your item? or Are you looking to buy some item?",
-        bgColor: const Color(0xffE2D5FE),
-        icon: Icons.sell),
+        bgColor: Colours.secondary,
+        image: 'buy-sell.svg'),
     MenuItem(
         title: "New Feature",
         description: "Add some nice description which describe the feature",
-        bgColor: const Color(0xffC1E3FE),
-        icon: Icons.new_label)
+        bgColor: Colours.secondary,
+        image: 'icon-placeholder.svg')
+  ];
+
+  static List<BottomBarMenuItems> bottomBarItems = <BottomBarMenuItems>[
+    BottomBarMenuItems(
+        title: 'Home',
+        activeIcon: const Image(
+          image: AssetImage('${Constants.imagePath}/home-active-v2.png'),
+        ),
+        inActiveIcon: const Image(
+          image: AssetImage('${Constants.imagePath}/home-inactive.png'),
+        )),
+    BottomBarMenuItems(
+        title: 'Message',
+        activeIcon: const Image(
+          image: AssetImage('${Constants.imagePath}/message-active-v2.png'),
+        ),
+        inActiveIcon: const Image(
+          image: AssetImage('${Constants.imagePath}/message-inactive.png'),
+        )),
+    BottomBarMenuItems(
+        title: 'Profile',
+        activeIcon: const Image(
+          image: AssetImage('${Constants.imagePath}/profile-active-v2.png'),
+        ),
+        inActiveIcon: const Image(
+          image: AssetImage('${Constants.imagePath}/profile-inactive.png'),
+        ))
   ];
 }

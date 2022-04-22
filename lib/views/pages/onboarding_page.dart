@@ -40,9 +40,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
         duration: const Duration(milliseconds: 150),
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 4.0),
         height: 8.0,
-        width: isActive ? 24.0 : 16.0,
+        width: isActive ? 28.0 : 10.0,
         decoration: isActive
             ? BoxDecoration(
                 color: Colours.primary,
