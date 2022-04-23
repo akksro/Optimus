@@ -1,7 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'dimes.dart';
+import 'package:optimus/resources/resources.dart';
 
-class TextStyles {}
+class FontStyles {
+  static TextStyle h1PrimaryStyle = const TextStyle(
+      fontSize: 20.0, fontWeight: FontWeight.w500, color: Colours.primaryFont);
+}
 
 class Decorations {}
 

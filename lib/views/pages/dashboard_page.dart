@@ -20,7 +20,8 @@ class _DashboardPageState extends State<DashboardPage> {
           centerTitle: false,
           title: const Text(
             '${Constants.greeting}, Anonymous',
-            style: TextStyle(color: Colours.primary, fontWeight: FontWeight.w600),
+            style:
+                TextStyle(color: Colours.primary, fontWeight: FontWeight.w600),
             textAlign: TextAlign.start,
           ),
           actions: [
@@ -51,7 +52,10 @@ class _DashboardPageState extends State<DashboardPage> {
               child: Text(
                 Constants.serviceWeProvide,
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, color: Colours.primaryFont),
+                style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colours.primaryFont),
               ),
             ),
             Gaps.vGap20,
@@ -62,13 +66,13 @@ class _DashboardPageState extends State<DashboardPage> {
                     Menu(menuItem: Constants.menuItems[0]),
                     Gaps.hGap10,
                     Menu(menuItem: Constants.menuItems[1]),
-                    // Menu(Constants.menuItems[1])
                   ],
                 ),
                 Gaps.vGap20,
                 Row(
                   children: <Widget>[
                     Menu(menuItem: Constants.menuItems[2]),
+                    Gaps.hGap10,
                     Menu(menuItem: Constants.menuItems[3]),
                   ],
                 ),

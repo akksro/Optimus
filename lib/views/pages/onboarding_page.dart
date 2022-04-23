@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:optimus/resources/resources.dart';
-import 'package:optimus/views/pages/home_page.dart';
+import 'package:optimus/views/pages/signin_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -53,10 +53,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 border: Border.all(width: 1, color: Colours.primary)));
   }
 
-  _gotoDashboard() => Navigator.pushReplacement<void, void>(
+  _gotoMainPage() => Navigator.pushReplacement<void, void>(
         context,
         MaterialPageRoute<void>(
-          builder: (BuildContext context) => const HomePage(),
+          builder: (BuildContext context) => const SignInPage(),
         ),
       );
 
@@ -157,7 +157,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                       borderRadius: BorderRadius.circular(18.0),
                                       side: const BorderSide(
                                           color: Colours.primary)))),
-                      onPressed: _gotoDashboard,
+                      onPressed: _gotoMainPage,
                     ),
                   ),
                 ),
@@ -169,7 +169,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                        onPressed: _gotoDashboard,
+                        onPressed: _gotoMainPage,
                         child: const Text(
                           Constants.skip,
                           style: TextStyle(color: Colours.primaryFont),
