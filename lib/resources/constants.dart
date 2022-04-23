@@ -24,18 +24,18 @@ class Constants {
   static List<Onboarding> onbording = <Onboarding>[
     Onboarding(
       title: "Find friend not just a roommate!",
-      image: '${Constants.imagePath}/sample.png',
+      image: '${Constants.imagePath}/onboarding-1.png',
       description:
           "What fun could we have more than having a roommate with a similar interest.",
     ),
     Onboarding(
       title: "Looking for a safe space to leave",
-      image: '${Constants.imagePath}/FadeCircle.png',
+      image: '${Constants.imagePath}/onboarding-2.png',
       description: "We have ample amount of apartment waiting for you.",
     ),
     Onboarding(
       title: "A whole lot of opportunity to find the right things",
-      image: '${Constants.imagePath}/FadeCircle.png',
+      image: '${Constants.imagePath}/onboarding-3.png',
       description:
           "Provide affordable deals. Discover, chat, reach and settle in a breeze.",
     )

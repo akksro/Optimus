@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:optimus/resources/resources.dart';
 import 'package:optimus/views/pages/signin_page.dart';
+import 'package:optimus/views/widgets/buttons.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -60,107 +61,96 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
       );
 
+  _gotToNextPage() => _pageController.nextPage(
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.ease,
+      );
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
         body: AnnotatedRegion<SystemUiOverlayStyle>(
             value: SystemUiOverlayStyle.dark,
             child: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                child: PageView.builder(
-                    itemCount: Constants.onbording.length,
-                    controller: _pageController,
-                    physics: const ClampingScrollPhysics(),
-                    onPageChanged: (int index) {
-                      setState(() {
-                        _currentPage = index;
-                      });
-                    },
-                    itemBuilder: (_, index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(30.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Center(
-                                  child: 
-                                  Image(
-                                    image: AssetImage(
-                                      Constants.onbording[index].image,
-                                    ),
-                                    height: 250.0,
-                                    width: 250.0,
+              child: PageView.builder(
+                  itemCount: Constants.onbording.length,
+                  controller: _pageController,
+                  physics: const ClampingScrollPhysics(),
+                  onPageChanged: (int index) {
+                    setState(() {
+                      _currentPage = index;
+                    });
+                  },
+                  itemBuilder: (_, index) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Center(
+                                child: Image(
+                                  image: AssetImage(
+                                    Constants.onbording[index].image,
+                                  ),
+                                  width: width,
+                                ),
+                              ),
+                              Gaps.vGap40,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 20.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: _buildPageIndicator(),
+                                ),
+                              ),
+                              Gaps.vGap10,
+                              Center(
+                                child: Text(
+                                  Constants.onbording[index].title,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colours.primaryFont,
+                                    fontFamily: 'CM Sans Serif',
+                                    fontSize: 26.0,
+                                    height: 1.5,
                                   ),
                                 ),
-                                Gaps.vGap40,
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 20.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: _buildPageIndicator(),
+                              ),
+                              Gaps.vGap20,
+                              Center(
+                                child: Text(
+                                  Constants.onbording[index].description,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colours.secondaryFont,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18.0,
+                                    height: 1.2,
                                   ),
                                 ),
-                                Gaps.vGap10,
-                                Center(
-                                  child: Text(
-                                    Constants.onbording[index].title,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      color: Colours.primaryFont,
-                                      fontFamily: 'CM Sans Serif',
-                                      fontSize: 26.0,
-                                      height: 1.5,
-                                    ),
-                                  ),
-                                ),
-                                Gaps.vGap20,
-                                Center(
-                                  child: Text(
-                                    Constants.onbording[index].description,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      color: Colours.secondaryFont,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.0,
-                                      height: 1.2,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      );
-                    }),
-              ),
+                        ),
+                      ],
+                    );
+                  }),
             )),
         bottomSheet: _currentPage == Constants.onbording.length - 1
             ? SizedBox(
-                height: 100.0,
-                width: double.infinity,
-                child: GestureDetector(
-                  child: Center(
-                    child: ElevatedButton(
-                      child: const Text(Constants.getStarted),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colours.primary),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                      side: const BorderSide(
-                                          color: Colours.primary)))),
-                      onPressed: _gotoMainPage,
-                    ),
-                  ),
+                height: 120.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: Buttons.getButton(ButtonType.solid_button,
+                      Constants.getStarted, _gotoMainPage,
+                      alignment: Alignment.bottomCenter),
                 ),
               )
             : Padding(
@@ -169,30 +159,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton(
-                        onPressed: _gotoMainPage,
-                        child: const Text(
-                          Constants.skip,
-                          style: TextStyle(color: Colours.primaryFont),
-                        )),
-                    ElevatedButton(
-                      child: const Text(Constants.next),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colours.primary),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                      side: const BorderSide(
-                                          color: Colours.primary)))),
-                      onPressed: () {
-                        _pageController.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.ease,
-                        );
-                      },
+                    SizedBox(
+                      height: 100,
+                      child: Buttons.getButton(ButtonType.text_button,
+                          Constants.skip, _gotoMainPage),
                     ),
+                    Buttons.getButton(
+                        ButtonType.solid_button, Constants.next, _gotToNextPage,
+                        customStyle: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colours.primary),
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: const BorderSide(
+                                        color: Colours.primary))))),
                   ],
                 ),
               ));
