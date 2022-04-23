@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:optimus/resources/resources.dart';
 import 'package:optimus/views/pages/home_page.dart';
 import 'package:optimus/views/widgets/buttons.dart';
-import 'package:optimus/views/widgets/input_field.dart';
+import 'package:optimus/views/widgets/inputs.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -60,9 +60,9 @@ class SignInPage extends StatelessWidget {
               Gaps.vGap20,
               Column(
                 children: [
-                  const InputField(placeholder: "Enter email Id"),
-                  Gaps.vGap10,
-                  const InputField(placeholder: "Enter password"),
+                   Inputs.getTextField(InputType.email, "Enter email Id", "anonymous@mail.com"),
+                  Gaps.vGap15,
+                  Inputs.getTextField(InputType.password, "Enter password", "***********"),
                   Align(
                       child: Buttons.getButton(
                     ButtonType.text_button,

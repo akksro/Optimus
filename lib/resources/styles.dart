@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:optimus/resources/resources.dart';
 
 class FontStyles {
@@ -6,7 +6,13 @@ class FontStyles {
       fontSize: 20.0, fontWeight: FontWeight.w500, color: Colours.primaryFont);
 }
 
-class Decorations {}
+class Decorations {
+
+  static InputBorder textFieldDecoration =  OutlineInputBorder(
+   borderSide: BorderSide(color: Colours.primary.withAlpha(30), width: 2.0),
+    borderRadius: BorderRadius.circular(10.0),
+  );
+}
 
 class Gaps {
   static Widget hGap5 = const SizedBox(width: Dimens.gap_dp5);
