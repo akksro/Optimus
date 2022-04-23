@@ -81,43 +81,41 @@ class _HomePageState extends State<HomePage> {
                   ),
                   alignment: Alignment.center),
               BottomBarItem(
-                  child: Stack(children: [
-                Row(
-                  children: [
-                    AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      curve: Curves.fastLinearToSlowEaseIn,
-                      width:
-                          index == currentPageIndex ? displayWidth * .060 : 30,
-                    ),
-                    index == currentPageIndex
-                        ? Constants.bottomBarItems[index].activeIcon
-                        : Constants.bottomBarItems[index].inActiveIcon,
-                    AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      curve: Curves.fastLinearToSlowEaseIn,
-                      width:
-                          index == currentPageIndex ? displayWidth * .030 : 0,
-                    ),
-                    AnimatedOpacity(
-                      opacity: index == currentPageIndex ? 1 : 0,
-                      duration: const Duration(seconds: 1),
-                      curve: Curves.fastLinearToSlowEaseIn,
-                      child: Text(
-                        index == currentPageIndex
-                            // ignore: unnecessary_string_interpolations
-                            ? '${Constants.bottomBarItems[index].title}'
-                            : '',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                  child: Row(
+                    children: [
+                      AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        width:
+                            index == currentPageIndex ? displayWidth * .060 : 30,
+                      ),
+                      index == currentPageIndex
+                          ? Constants.bottomBarItems[index].activeIcon
+                          : Constants.bottomBarItems[index].inActiveIcon,
+                      AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        width:
+                            index == currentPageIndex ? displayWidth * .030 : 0,
+                      ),
+                      AnimatedOpacity(
+                        opacity: index == currentPageIndex ? 1 : 0,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        child: Text(
+                          index == currentPageIndex
+                              // ignore: unnecessary_string_interpolations
+                              ? '${Constants.bottomBarItems[index].title}'
+                              : '',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ])),
+                    ],
+                  )),
             ],
           ),
         ),
