@@ -11,99 +11,104 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double size = MediaQuery.of(context).size.width - 60 ;
     const TextStyle greetinTextStyle = TextStyle(
         fontSize: 20.0,
         fontWeight: FontWeight.w500,
         color: Colours.primaryFont);
     return Scaffold(
       body: SafeArea(
-          child: Padding(
+          child: Center(
+            child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Gaps.vGap30,
-            const Align(
-              child: Image(
-                image: AssetImage('${Constants.imagePath}/placeholder.png'),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Gaps.vGap30,
+              const Align(
+                child: Image(
+                  image: AssetImage('${Constants.imagePath}/placeholder.png'),
+                ),
+                alignment: Alignment.center,
               ),
-              alignment: Alignment.center,
-            ),
-            Gaps.vGap30,
-            const Text("Hey there,", style: greetinTextStyle),
-            Gaps.vGap5,
-            const Text(
-              "Please Login into your account",
-              style: greetinTextStyle,
-            ),
-            Gaps.vGap30,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                BorderButton(
-                  content: "Sign in with google",
-                  onClick: () {
-                    print("Login with google");
-                  },
-                  image: "google.svg",
-                ),
-                Gaps.hGap10,
-                BorderButton(
-                  content: "Sign in with facebook",
-                  onClick: () {
-                    print("Login with facebook");
-                  },
-                  image: "facebook.svg",
-                ),
-              ],
-            ),
-            Gaps.vGap20,
-            const Align(
-              child: Text("OR", style: TextStyle(color: Colours.secondaryFont)),
-              alignment: Alignment.center,
-            ),
-            Gaps.vGap20,
-            Column(
-              children: [
-                const InputField(placeholder: "Enter email Id"),
-                Gaps.vGap10,
-                const InputField(placeholder: "Enter password"),
-                Align(
-                  child: FontButton(
-                      content: "Forgot Password?",
-                      onClick: () {
-                        print("Forgot password");
-                      },
-                      alignment: Alignment.centerRight),
-                )
-              ],
-            ),
-            SolidButton(
-                content: "Let's get started",
-                onClick: () {
-                  _goto(context, const HomePage());
-                }),
-            Gaps.vGap5,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'New to ${Constants.appName}?',
-                  style: TextStyle(
-                      color: Colours.secondaryFont,
-                      fontWeight: FontWeight.w600),
-                ),
-                FontButton(
-                    content: "Register Now!",
+              Gaps.vGap30,
+              const Text("Hey there,", style: greetinTextStyle),
+              Gaps.vGap5,
+              const Text(
+                "Please login into your account",
+                style: greetinTextStyle,
+              ),
+              Gaps.vGap30,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BorderButton(
+                    width: size /2,
+                    content: "Login with google",
                     onClick: () {
-                      print("Register Now");
+                      print("Login with google");
                     },
-                    alignment: Alignment.center),
-              ],
-            )
-          ],
+                    image: "google.svg",
+                  ),
+                  Gaps.hGap10,
+                  BorderButton(
+                    width: size / 2,
+                    content: "Login with facebook",
+                    onClick: () {
+                      print("Login with facebook");
+                    },
+                    image: "facebook.svg",
+                  ),
+                ],
+              ),
+              Gaps.vGap20,
+              const Align(
+                child: Text("OR", style: TextStyle(color: Colours.secondaryFont)),
+                alignment: Alignment.center,
+              ),
+              Gaps.vGap20,
+              Column(
+                children: [
+                  const InputField(placeholder: "Enter email Id"),
+                  Gaps.vGap10,
+                  const InputField(placeholder: "Enter password"),
+                  Align(
+                    child: FontButton(
+                        content: "Forgot Password?",
+                        onClick: () {
+                          print("Forgot password");
+                        },
+                        alignment: Alignment.centerRight),
+                  )
+                ],
+              ),
+              SolidButton(
+                  content: "Let's get started",
+                  onClick: () {
+                    _goto(context, const HomePage());
+                  }),
+              Gaps.vGap5,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'New to ${Constants.appName}?',
+                    style: TextStyle(
+                        color: Colours.secondaryFont,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  FontButton(
+                      content: "Register Now!",
+                      onClick: () {
+                        print("Register Now");
+                      },
+                      alignment: Alignment.center),
+                ],
+              )
+            ],
         ),
-      )),
+      ),
+          )),
     );
   }
 

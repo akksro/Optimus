@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:optimus/models/bottombarmenuitems.dart';
 import 'package:optimus/models/menuitem.dart';
 import 'package:optimus/models/models.dart';
@@ -68,28 +69,33 @@ class Constants {
 
   static List<BottomBarMenuItems> bottomBarItems = <BottomBarMenuItems>[
     BottomBarMenuItems(
-        title: 'Home',
-        activeIcon: const Image(
-          image: AssetImage('${Constants.imagePath}/home-active-v2.png'),
-        ),
-        inActiveIcon: const Image(
-          image: AssetImage('${Constants.imagePath}/home-inactive.png'),
-        )),
+      title: 'Home',
+      activeIcon: SvgPicture.asset('${Constants.imagePath}/home-active-v2.svg',
+          semanticsLabel: 'Home', fit: BoxFit.scaleDown),
+      inActiveIcon: SvgPicture.asset('${Constants.imagePath}/home-inactive.svg',
+          semanticsLabel: 'Home', fit: BoxFit.scaleDown),
+    ),
     BottomBarMenuItems(
-        title: 'Message',
-        activeIcon: const Image(
-          image: AssetImage('${Constants.imagePath}/message-active-v2.png'),
-        ),
-        inActiveIcon: const Image(
-          image: AssetImage('${Constants.imagePath}/message-inactive.png'),
-        )),
+      title: 'Message',
+      activeIcon: SvgPicture.asset(
+          '${Constants.imagePath}/message-active-v2.svg',
+          semanticsLabel: 'message',
+          fit: BoxFit.scaleDown),
+      inActiveIcon: SvgPicture.asset(
+          '${Constants.imagePath}/message-inactive.svg',
+          semanticsLabel: 'message',
+          fit: BoxFit.scaleDown),
+    ),
     BottomBarMenuItems(
-        title: 'Profile',
-        activeIcon: const Image(
-          image: AssetImage('${Constants.imagePath}/profile-active-v2.png'),
-        ),
-        inActiveIcon: const Image(
-          image: AssetImage('${Constants.imagePath}/profile-inactive.png'),
-        ))
+      title: 'Profile',
+      activeIcon: SvgPicture.asset(
+          '${Constants.imagePath}/profile-active-v2.svg',
+          semanticsLabel: 'profile',
+          fit: BoxFit.scaleDown),
+      inActiveIcon: SvgPicture.asset(
+          '${Constants.imagePath}/profile-inactive.svg',
+          semanticsLabel: 'profile',
+          fit: BoxFit.scaleDown),
+    )
   ];
 }

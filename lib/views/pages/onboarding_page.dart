@@ -67,7 +67,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             value: SystemUiOverlayStyle.dark,
             child: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
                 child: PageView.builder(
                     itemCount: Constants.onbording.length,
                     controller: _pageController,
@@ -89,7 +89,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Center(
-                                  child: Image(
+                                  child: 
+                                  Image(
                                     image: AssetImage(
                                       Constants.onbording[index].image,
                                     ),

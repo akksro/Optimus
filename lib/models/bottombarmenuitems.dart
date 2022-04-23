@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BottomBarMenuItems {
   String title;
-  Image activeIcon;
-  Image inActiveIcon;
+  SvgPicture activeIcon;
+  SvgPicture inActiveIcon;
 
   BottomBarMenuItems({
     required this.title,
