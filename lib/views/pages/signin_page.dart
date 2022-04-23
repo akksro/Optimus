@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:optimus/resources/resources.dart';
 import 'package:optimus/views/pages/home_page.dart';
+import 'package:optimus/views/widgets/border_button.dart';
+import 'package:optimus/views/widgets/font_button.dart';
+import 'package:optimus/views/widgets/input_field.dart';
+import 'package:optimus/views/widgets/solid_button.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -37,14 +40,21 @@ class SignInPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                outLineButtonWithImage("google.svg", "Sign in with google", () {
-                  print("Login with google");
-                }),
+                BorderButton(
+                  content: "Sign in with google",
+                  onClick: () {
+                    print("Login with google");
+                  },
+                  image: "google.svg",
+                ),
                 Gaps.hGap10,
-                outLineButtonWithImage("facebook.svg", "Sign in with facebook",
-                    () {
-                  print("Login with google");
-                })
+                BorderButton(
+                  content: "Sign in with facebook",
+                  onClick: () {
+                    print("Login with facebook");
+                  },
+                  image: "facebook.svg",
+                ),
               ],
             ),
             Gaps.vGap20,
@@ -55,18 +65,24 @@ class SignInPage extends StatelessWidget {
             Gaps.vGap20,
             Column(
               children: [
-                appInput("Enter email Id", ""),
+                const InputField(placeholder: "Enter email Id"),
                 Gaps.vGap10,
-                appInput("Enter password", ""),
+                const InputField(placeholder: "Enter password"),
                 Align(
-                    child: textButton("Forgot Password?", () {
-                  print("Forgot password");
-                }, Alignment.centerRight))
+                  child: FontButton(
+                      content: "Forgot Password?",
+                      onClick: () {
+                        print("Forgot password");
+                      },
+                      alignment: Alignment.centerRight),
+                )
               ],
             ),
-            solidButton("Let's get started", () {
-              _goto(context, const HomePage());
-            }),
+            SolidButton(
+                content: "Let's get started",
+                onClick: () {
+                  _goto(context, const HomePage());
+                }),
             Gaps.vGap5,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -77,9 +93,12 @@ class SignInPage extends StatelessWidget {
                       color: Colours.secondaryFont,
                       fontWeight: FontWeight.w600),
                 ),
-                textButton("Register Now", () {
-                  print("Forgot password");
-                }, Alignment.center)
+                FontButton(
+                    content: "Register Now!",
+                    onClick: () {
+                      print("Register Now");
+                    },
+                    alignment: Alignment.center),
               ],
             )
           ],
@@ -95,84 +114,4 @@ class SignInPage extends StatelessWidget {
           builder: (BuildContext context) => page,
         ),
       );
-
-  Widget solidButton(String content, Function onPressed,
-      {AlignmentGeometry alignment = Alignment.center}) {
-    return Align(
-      alignment: alignment,
-      child: ElevatedButton(
-        onPressed: () {
-          onPressed();
-        },
-        child: Text(
-          content,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-        ),
-        style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-            ),
-            minimumSize:
-                MaterialStateProperty.all<Size>(const Size.fromHeight(50)),
-            backgroundColor: MaterialStateProperty.all<Color>(Colours.primary)),
-      ),
-    );
-  }
-
-  Widget textButton(
-      String content, Function onPressed, AlignmentGeometry alignment) {
-    return Align(
-      alignment: alignment,
-      child: TextButton(
-          onPressed: onPressed(),
-          child: Text(
-            content,
-            style: const TextStyle(
-                color: Colours.primary, fontWeight: FontWeight.w600),
-          )),
-    );
-  }
-
-  Widget appInput(String placeholderText, String type) {
-    InputBorder commonBorder = OutlineInputBorder(
-      borderSide: BorderSide(color: Colours.primary.withAlpha(30), width: 2.0),
-      borderRadius: BorderRadius.circular(10.0),
-    );
-    TextEditingController nameController = TextEditingController();
-    return TextField(
-      controller: nameController,
-      decoration: InputDecoration(
-        enabledBorder: commonBorder,
-        floatingLabelBehavior: FloatingLabelBehavior.auto,
-        fillColor: Colours.textfieldBGColor,
-        filled: true,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
-        floatingLabelStyle: const TextStyle(color: Colours.primary),
-        focusedBorder: commonBorder,
-        labelText: placeholderText,
-      ),
-    );
-  }
-
-  Widget outLineButtonWithImage(
-      String image, String content, Function onPressed) {
-    return OutlinedButton.icon(
-      style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              const EdgeInsets.all(8))),
-      label: Text(
-        content,
-        style: const TextStyle(
-            fontSize: 12,
-            color: Colours.primaryFont,
-            fontWeight: FontWeight.w600),
-      ),
-      icon: SvgPicture.asset('assets/images/$image',
-          semanticsLabel: content, fit: BoxFit.scaleDown),
-      onPressed: () {},
-    );
-  }
 }
