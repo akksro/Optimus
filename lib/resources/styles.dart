@@ -4,13 +4,27 @@ import 'package:optimus/resources/resources.dart';
 class FontStyles {
   static TextStyle h1PrimaryStyle = const TextStyle(
       fontSize: 20.0, fontWeight: FontWeight.w500, color: Colours.primaryFont);
+
+  static TextStyle greetingTextStyle = const TextStyle(
+      fontSize: 20.0, fontWeight: FontWeight.w500, color: Colours.primaryFont);
 }
 
 class Decorations {
-
-  static InputBorder textFieldDecoration =  OutlineInputBorder(
-   borderSide: BorderSide(color: Colours.primary.withAlpha(30), width: 2.0),
+  static InputBorder inputBorderDecoration = OutlineInputBorder(
+    borderSide: BorderSide(color: Colours.primary.withAlpha(30), width: 2.0),
     borderRadius: BorderRadius.circular(10.0),
+  );
+
+  static InputDecoration inputDecoration = InputDecoration(
+    contentPadding: const EdgeInsets.all(10),
+    enabledBorder: Decorations.inputBorderDecoration,
+    floatingLabelBehavior: FloatingLabelBehavior.never,
+    fillColor: Colours.textfieldBGColor,
+    filled: true,
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
+    floatingLabelStyle: const TextStyle(color: Colours.primary),
+    focusedBorder: Decorations.inputBorderDecoration,
+    suffixStyle: const TextStyle(color: Colours.primary, fontSize: 10),
   );
 }
 

@@ -44,15 +44,7 @@ class _InputTextFieldState extends State<InputTextField> {
   Widget build(BuildContext context) {
     return TextField(
       controller: textController,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(10),
-        enabledBorder: Decorations.textFieldDecoration,
-        floatingLabelBehavior: FloatingLabelBehavior.never,
-        fillColor: Colours.textfieldBGColor,
-        filled: true,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
-        floatingLabelStyle: const TextStyle(color: Colours.primary),
-        focusedBorder: Decorations.textFieldDecoration,
+      decoration: Decorations.inputDecoration.copyWith(
         hintText: widget.hintText,
         labelText: widget.placeholder,
       ),
@@ -92,22 +84,13 @@ class _EmailTextFieldState extends State<EmailTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (value) => validateEmail(value),
-      keyboardType: TextInputType.emailAddress,
-      controller: emailController,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(10),
-        enabledBorder: Decorations.textFieldDecoration,
-        floatingLabelBehavior: FloatingLabelBehavior.never,
-        fillColor: Colours.textfieldBGColor,
-        filled: true,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
-        floatingLabelStyle: const TextStyle(color: Colours.primary),
-        focusedBorder: Decorations.textFieldDecoration,
-        hintText: widget.hintText,
-        labelText: widget.placeholder,
-      ),
-    );
+        validator: (value) => validateEmail(value),
+        keyboardType: TextInputType.emailAddress,
+        controller: emailController,
+        decoration: Decorations.inputDecoration.copyWith(
+          hintText: widget.hintText,
+          labelText: widget.placeholder,
+        ));
   }
 
   String validateEmail(String? value) {
@@ -168,28 +151,18 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: passwordController,
-      obscureText: _isObscureText,
-      decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(10),
-          enabledBorder: Decorations.textFieldDecoration,
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          fillColor: Colours.textfieldBGColor,
-          filled: true,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
-          floatingLabelStyle: const TextStyle(color: Colours.primary),
-          focusedBorder: Decorations.textFieldDecoration,
-          hintText: widget.hintText,
-          labelText: widget.placeholder,
-          suffixStyle: const TextStyle(color: Colours.primary, fontSize: 10),
-          suffixIcon: IconButton(
-            icon: Icon(
-              _isObscureText ? Icons.visibility_off : Icons.visibility,
-              size: 20,
-              color: Colours.primary,
-            ),
-            onPressed: toggleState,
-          )),
-    );
+        controller: passwordController,
+        obscureText: _isObscureText,
+        decoration: Decorations.inputDecoration.copyWith(
+            hintText: widget.hintText,
+            labelText: widget.placeholder,
+            suffixIcon: IconButton(
+              icon: Icon(
+                _isObscureText ? Icons.visibility_off : Icons.visibility,
+                size: 20,
+                color: Colours.primary,
+              ),
+              onPressed: toggleState,
+            )));
   }
 }

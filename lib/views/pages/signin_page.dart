@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:optimus/resources/resources.dart';
+import 'package:optimus/utils/navigate_to_screen.dart';
+import 'package:optimus/views/pages/forgot_password_page.dart';
 import 'package:optimus/views/pages/home_page.dart';
+import 'package:optimus/views/pages/signup_page.dart';
 import 'package:optimus/views/widgets/buttons.dart';
 import 'package:optimus/views/widgets/inputs.dart';
 
@@ -10,10 +13,6 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width - 60;
-    const TextStyle greetinTextStyle = TextStyle(
-        fontSize: 20.0,
-        fontWeight: FontWeight.w500,
-        color: Colours.primaryFont);
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -30,11 +29,11 @@ class SignInPage extends StatelessWidget {
                 alignment: Alignment.center,
               ),
               Gaps.vGap30,
-              const Text("Hey there,", style: greetinTextStyle),
+              Text("Hey there,", style: FontStyles.greetingTextStyle),
               Gaps.vGap5,
-              const Text(
+              Text(
                 "Please login into your account",
-                style: greetinTextStyle,
+                style: FontStyles.greetingTextStyle,
               ),
               Gaps.vGap30,
               Row(
@@ -60,15 +59,17 @@ class SignInPage extends StatelessWidget {
               Gaps.vGap20,
               Column(
                 children: [
-                   Inputs.getTextField(InputType.email, "Enter email Id", "anonymous@mail.com"),
+                  Inputs.getTextField(
+                      InputType.email, "Enter email id", "anonymous@mail.com"),
                   Gaps.vGap15,
-                  Inputs.getTextField(InputType.password, "Enter password", "***********"),
+                  Inputs.getTextField(InputType.password, "Enter password", ""),
                   Align(
                       child: Buttons.getButton(
                     ButtonType.text_button,
                     "Forgot Password?",
                     () {
-                      print("Forgot password");
+                      NavigateToScreen.push(
+                          context, const ForgotPasswordPage());
                     },
                     alignment: Alignment.centerRight,
                   ))
@@ -77,7 +78,9 @@ class SignInPage extends StatelessWidget {
               Buttons.getButton(
                 ButtonType.solid_button,
                 "Let's get started",
-                (){_goto(context, const HomePage());},
+                () {
+                  NavigateToScreen.pushAndReplace(context, const HomePage());
+                },
                 alignment: Alignment.centerRight,
               ),
               Gaps.vGap5,
@@ -94,7 +97,7 @@ class SignInPage extends StatelessWidget {
                     ButtonType.text_button,
                     "Register Now!",
                     () {
-                      print("Register Now");
+                      NavigateToScreen.push(context, const SignupPage());
                     },
                     alignment: Alignment.center,
                   ),
@@ -106,12 +109,4 @@ class SignInPage extends StatelessWidget {
       )),
     );
   }
-
-  _goto(BuildContext mainContext, Widget page) =>
-      Navigator.pushReplacement<void, void>(
-        mainContext,
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => page,
-        ),
-      );
 }
