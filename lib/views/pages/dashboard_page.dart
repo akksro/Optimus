@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:optimus/resources/resources.dart';
+import 'package:optimus/utils/navigate_to_screen.dart';
+import 'package:optimus/views/pages/notifications_page.dart';
 import 'package:optimus/views/widgets/menu.dart';
+import 'package:lottie/lottie.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -29,12 +32,10 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
           actions: [
             IconButton(
-              icon: const Icon(
-                Icons.notifications,
-                color: Colours.primary,
-              ),
+              icon: Lottie.network(
+                  "https://assets10.lottiefiles.com/packages/lf20_ohcfxhlo.json", repeat: false),
               onPressed: () {
-                // do something
+                NavigateToScreen.push(context, const NotificationPage());
               },
             )
           ],
