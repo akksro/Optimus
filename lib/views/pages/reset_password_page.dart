@@ -4,6 +4,7 @@ import 'package:optimus/resources/constants.dart';
 import 'package:optimus/resources/styles.dart';
 import 'package:optimus/utils/navigate_to_screen.dart';
 import 'package:optimus/views/pages/home_page.dart';
+import 'package:optimus/views/widgets/appbar.dart';
 import 'package:optimus/views/widgets/buttons.dart';
 import 'package:optimus/views/widgets/inputs.dart';
 
@@ -20,12 +21,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        elevation: 0,
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colours.primary),
-      ),
+      appBar: Appbar.transaparentAppbar(),
       body: SafeArea(
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -69,7 +65,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       ButtonType.solid_button,
                       "Reset Password",
                       () {
-                        NavigateToScreen.pushAndRemove(context, const HomePage());
+                        NavigateToScreen.pushAndRemove(
+                            context, const HomePage());
                       },
                       alignment: Alignment.centerRight,
                     ),

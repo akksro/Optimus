@@ -12,6 +12,9 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double width = (size.width - 56) / 2;
+    double height = (size.height - 512) / 2;
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -63,17 +66,33 @@ class _DashboardPageState extends State<DashboardPage> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Menu(menuItem: Constants.menuItems[0]),
+                    Menu(
+                      menuItem: Constants.menuItems[0],
+                      width: width,
+                      height: height,
+                    ),
                     Gaps.hGap10,
-                    Menu(menuItem: Constants.menuItems[1]),
+                    Menu(
+                      menuItem: Constants.menuItems[1],
+                      width: width,
+                      height: height,
+                    ),
                   ],
                 ),
                 Gaps.vGap20,
                 Row(
                   children: <Widget>[
-                    Menu(menuItem: Constants.menuItems[2]),
+                    Menu(
+                      menuItem: Constants.menuItems[2],
+                      width: width,
+                      height: height,
+                    ),
                     Gaps.hGap10,
-                    Menu(menuItem: Constants.menuItems[3]),
+                    Menu(
+                      menuItem: Constants.menuItems[3],
+                      width: width,
+                      height: height,
+                    ),
                   ],
                 ),
               ],

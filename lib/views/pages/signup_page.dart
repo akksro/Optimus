@@ -4,6 +4,7 @@ import 'package:optimus/resources/constants.dart';
 import 'package:optimus/resources/styles.dart';
 import 'package:optimus/utils/navigate_to_screen.dart';
 import 'package:optimus/views/pages/home_page.dart';
+import 'package:optimus/views/widgets/appbar.dart';
 import 'package:optimus/views/widgets/buttons.dart';
 import 'package:optimus/views/widgets/inputs.dart';
 
@@ -14,6 +15,7 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width - 60;
     return Scaffold(
+      appBar: Appbar.transaparentAppbar(),
       body: SafeArea(
           child: Center(
         child: Padding(
@@ -21,32 +23,32 @@ class SignupPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gaps.vGap30,
+              // Gaps.vGap30,
               const Align(
                 child: Image(
                   image: AssetImage('${Constants.imagePath}/placeholder.png'),
                 ),
                 alignment: Alignment.center,
               ),
-              Gaps.vGap30,
+              Gaps.vGap20,
               Text("Let’s start,", style: FontStyles.greetingTextStyle),
               Gaps.vGap5,
               Text(
                 "Creation of your account",
                 style: FontStyles.greetingTextStyle,
               ),
-              Gaps.vGap30,
+              Gaps.vGap20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Buttons.getButton(
-                      ButtonType.outline_button, "Login with google", () {
-                    print("Login with google");
+                      ButtonType.outline_button, "Signup with google", () {
+                    print("Signup with google");
                   }, width: size / 2, image: "google.svg"),
                   Gaps.hGap10,
                   Buttons.getButton(
-                      ButtonType.outline_button, "Login with facebook", () {
-                    print("Login with facebook");
+                      ButtonType.outline_button, "Signup with facebook", () {
+                    print("Signup with facebook");
                   }, width: size / 2, image: "facebook.svg")
                 ],
               ),
@@ -61,7 +63,7 @@ class SignupPage extends StatelessWidget {
                   Gaps.vGap15,
                   Inputs.getTextField(
                       InputType.password, "Confirm password", ""),
-                      Gaps.vGap15,
+                  Gaps.vGap15,
                 ],
               ),
               Buttons.getButton(
@@ -77,16 +79,16 @@ class SignupPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'New to ${Constants.appName}?',
+                    'Already have an account?',
                     style: TextStyle(
                         color: Colours.secondaryFont,
                         fontWeight: FontWeight.w600),
                   ),
                   Buttons.getButton(
                     ButtonType.text_button,
-                    "Register Now!",
+                    'login now.',
                     () {
-                      print("Register Now");
+                      NavigateToScreen.pop(context);
                     },
                     alignment: Alignment.center,
                   ),

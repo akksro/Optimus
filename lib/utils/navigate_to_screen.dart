@@ -19,4 +19,7 @@ class NavigateToScreen {
           mainContext,
           MaterialPageRoute(builder: (BuildContext context) => page),
           (Route<dynamic> route) => false);
+
+  static pop(BuildContext mainContext) =>
+      Navigator.pop(mainContext);
 }

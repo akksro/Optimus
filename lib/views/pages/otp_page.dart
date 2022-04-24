@@ -4,6 +4,7 @@ import 'package:optimus/resources/constants.dart';
 import 'package:optimus/resources/styles.dart';
 import 'package:optimus/utils/navigate_to_screen.dart';
 import 'package:optimus/views/pages/reset_password_page.dart';
+import 'package:optimus/views/widgets/appbar.dart';
 import 'package:optimus/views/widgets/buttons.dart';
 import 'package:optimus/views/widgets/inputs.dart';
 
@@ -13,12 +14,7 @@ class OtpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        elevation: 0,
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colours.primary),
-      ),
+      appBar: Appbar.transaparentAppbar(),
       body: SafeArea(
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
