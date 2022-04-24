@@ -66,13 +66,13 @@ class _DashboardPageState extends State<DashboardPage> {
             Column(
               children: <Widget>[
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Menu(
                       menuItem: Constants.menuItems[0],
                       width: width,
                       height: height,
                     ),
-                    Gaps.hGap10,
                     Menu(
                       menuItem: Constants.menuItems[1],
                       width: width,
@@ -82,13 +82,13 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 Gaps.vGap20,
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Menu(
                       menuItem: Constants.menuItems[2],
                       width: width,
                       height: height,
                     ),
-                    Gaps.hGap10,
                     Menu(
                       menuItem: Constants.menuItems[3],
                       width: width,
