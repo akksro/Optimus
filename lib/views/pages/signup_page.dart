@@ -8,25 +8,39 @@ import 'package:optimus/views/widgets/appbar.dart';
 import 'package:optimus/views/widgets/buttons.dart';
 import 'package:optimus/views/widgets/inputs.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
 
   @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  late bool agreedToTandC;
+
+  @override
+  void initState() {
+    setState(() {
+      agreedToTandC = false;
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    double size = MediaQuery.of(context).size.width - 60;
+    double size = MediaQuery.of(context).size.width - 50;
     return Scaffold(
       appBar: Appbar.transaparentAppbar(),
       body: SafeArea(
-          child: Center(
+          child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Gaps.vGap30,
               const Align(
                 child: Image(
-                  image: AssetImage('${Constants.imagePath}/placeholder.png'),
+                  image: AssetImage('${Constants.imagePath}/signup.png'),
                 ),
                 alignment: Alignment.center,
               ),
@@ -37,20 +51,25 @@ class SignupPage extends StatelessWidget {
                 "Creation of your account",
                 style: FontStyles.greetingTextStyle,
               ),
-              Gaps.vGap20,
+              Gaps.vGap10,
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Buttons.getButton(
                       ButtonType.outline_button, "Signup with google", () {
-                    print("Signup with google");
+                    print("Signup");
                   }, width: size / 2, image: "google.svg"),
-                  Gaps.hGap10,
                   Buttons.getButton(
                       ButtonType.outline_button, "Signup with facebook", () {
-                    print("Signup with facebook");
+                    print("Signup");
                   }, width: size / 2, image: "facebook.svg")
                 ],
+              ),
+              Gaps.vGap20,
+              const Align(
+                child:
+                    Text("OR", style: TextStyle(color: Colours.secondaryFont)),
+                alignment: Alignment.center,
               ),
               Gaps.vGap20,
               Column(
@@ -76,20 +95,33 @@ class SignupPage extends StatelessWidget {
               ),
               Gaps.vGap5,
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Checkbox(
+                    value: agreedToTandC,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        agreedToTandC = !agreedToTandC;
+                      });
+                    },
+                  ),
                   const Text(
-                    'Already have an account?',
+                    'I agree to the',
+                    style: TextStyle(
+                        color: Colours.secondaryFont,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Buttons.getButton(ButtonType.text_button, 'T&C', () {}),
+                  const Text(
+                    'and',
                     style: TextStyle(
                         color: Colours.secondaryFont,
                         fontWeight: FontWeight.w600),
                   ),
                   Buttons.getButton(
                     ButtonType.text_button,
-                    'login now.',
-                    () {
-                      NavigateToScreen.pop(context);
-                    },
+                    'Privacy policy.',
+                    () {},
                     alignment: Alignment.center,
                   ),
                 ],

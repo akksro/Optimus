@@ -21,24 +21,19 @@ class ForgotPasswordPage extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Gaps.vGap30,
+                    Gaps.vGap20,
                     const Align(
                       child: Image(
                         image: AssetImage(
-                            '${Constants.imagePath}/placeholder.png'),
+                            '${Constants.imagePath}/forgot-password.png'),
                       ),
                       alignment: Alignment.center,
                     ),
                     Gaps.vGap30,
-                    Text("Forgot", style: FontStyles.greetingTextStyle),
-                    Gaps.vGap5,
-                    Text(
-                      "Password?",
-                      style: FontStyles.greetingTextStyle,
-                    ),
+                    Text("Forgot Password?", style: FontStyles.greetingTextStyle),
                     Gaps.vGap10,
                     const Text(
-                      "Dont worrry! it happens, Please enter the email address associated with your account.",
+                      "Dont worry! it happens, Please enter the email address associated with your account.",
                       maxLines: 2,
                       softWrap: true,
                       style: TextStyle(color: Colours.secondaryFont),

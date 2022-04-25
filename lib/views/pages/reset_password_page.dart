@@ -28,15 +28,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Gaps.vGap30,
                     const Align(
                       child: Image(
                         image: AssetImage(
-                            '${Constants.imagePath}/placeholder.png'),
+                            '${Constants.imagePath}/reset-password.png'),
                       ),
                       alignment: Alignment.center,
                     ),
-                    Gaps.vGap30,
+                    Gaps.vGap20,
                     Text("Reset", style: FontStyles.greetingTextStyle),
                     Gaps.vGap5,
                     Text(

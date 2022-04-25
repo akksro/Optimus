@@ -43,11 +43,11 @@ class OtpPage extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Gaps.vGap30,
+                    Gaps.vGap15,
                     const Align(
                       child: Image(
                         image: AssetImage(
-                            '${Constants.imagePath}/placeholder.png'),
+                            '${Constants.imagePath}/otp.png'),
                       ),
                       alignment: Alignment.center,
                     ),
@@ -74,7 +74,7 @@ class OtpPage extends StatelessWidget {
                     Gaps.vGap20,
                     Buttons.getButton(
                       ButtonType.solid_button,
-                      "Reset Password",
+                      "Submit OTP",
                       () {
                         NavigateToScreen.push(
                             context,

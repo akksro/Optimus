@@ -12,7 +12,7 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double size = MediaQuery.of(context).size.width - 60;
+    double size = MediaQuery.of(context).size.width - 50;
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -21,29 +21,29 @@ class SignInPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gaps.vGap30,
-              const Align(
-                child: Image(
-                  image: AssetImage('${Constants.imagePath}/placeholder.png'),
+              Gaps.vGap10,
+               Container(
+                 height: 250,
+                child: const Image(
+                  image: AssetImage('${Constants.imagePath}/login.png'),
                 ),
                 alignment: Alignment.center,
               ),
-              Gaps.vGap30,
+              Gaps.vGap15,
               Text("Hey there,", style: FontStyles.greetingTextStyle),
               Gaps.vGap5,
               Text(
                 "Please login into your account",
                 style: FontStyles.greetingTextStyle,
               ),
-              Gaps.vGap30,
+              Gaps.vGap10,
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Buttons.getButton(
                       ButtonType.outline_button, "Login with google", () {
                     print("Login with google");
                   }, width: size / 2, image: "google.svg"),
-                  Gaps.hGap10,
                   Buttons.getButton(
                       ButtonType.outline_button, "Login with facebook", () {
                     print("Login with facebook");
