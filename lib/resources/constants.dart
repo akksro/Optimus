@@ -17,6 +17,7 @@ class Constants {
   static const String greetingMessage =
       'Some message to user, which should inspire him/her to use the application';
   static const String serviceWeProvide = 'Experience our top services';
+  static const String recentPosts = 'Recent Posts';
 
   // Path
   static const String imagePath = 'assets/images';
@@ -55,13 +56,13 @@ class Constants {
         bgColor: Colours.secondary,
         image: 'apartment-icon.png'),
     MenuItem(
-        title: "Buy / Sell item",
+        title: "Buy/Sell",
         description:
             "Want to sell something? or Are you looking to buy something?",
         bgColor: Colours.secondary,
         image: 'buy-sell-icon.png'),
     MenuItem(
-        title: "New Feature",
+        title: "New",
         description: "Add some nice description which describe the feature",
         bgColor: Colours.secondary,
         image: 'feature-icon.png')
