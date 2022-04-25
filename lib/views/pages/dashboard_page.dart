@@ -17,7 +17,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double width = (size.width - 40) / 2;
-    double height = (size.height - 512) / 2;
+    double height = (size.height - 500) / 2;
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -68,6 +68,7 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             Gaps.vGap20,
             Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

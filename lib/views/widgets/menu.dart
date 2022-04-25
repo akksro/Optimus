@@ -29,10 +29,10 @@ class _MenuState extends State<Menu> {
         borderRadius: BorderRadius.circular(6),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
               height: 60,
@@ -45,19 +45,23 @@ class _MenuState extends State<Menu> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(100)),
             ),
-            Gaps.vGap10,
-            Text(
-              widget.menuItem.title,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Colours.primaryFont),
-            ),
-            Gaps.vGap5,
-            Text(
-              widget.menuItem.description,
-              maxLines: 3,
-              softWrap: true,
-              style:
-                  const TextStyle(fontSize: 10, color: Colours.secondaryFont),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.menuItem.title,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: Colours.primaryFont),
+                ),
+                Gaps.vGap10,
+                Text(
+                  widget.menuItem.description,
+                  maxLines: 3,
+                  softWrap: true,
+                  style: const TextStyle(
+                      fontSize: 10, color: Colours.secondaryFont),
+                )
+              ],
             )
           ],
         ),

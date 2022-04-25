@@ -51,13 +51,13 @@ class Constants {
     MenuItem(
         title: "Apartment",
         description:
-            "Are you finding for any apartment? or Do you have any apartment?",
+            "Looking for any apartment? or Do you have any apartment?",
         bgColor: Colours.secondary,
         image: 'apartment-icon.png'),
     MenuItem(
         title: "Buy / Sell item",
         description:
-            "Do you want to sell your item? or Are you looking to buy some item?",
+            "Want to sell something? or Are you looking to buy something?",
         bgColor: Colours.secondary,
         image: 'buy-sell-icon.png'),
     MenuItem(
