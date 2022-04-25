@@ -16,7 +16,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double width = (size.width - 56) / 2;
+    double width = (size.width - 40) / 2;
     double height = (size.height - 512) / 2;
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -33,7 +33,8 @@ class _DashboardPageState extends State<DashboardPage> {
           actions: [
             IconButton(
               icon: Lottie.network(
-                  "https://assets10.lottiefiles.com/packages/lf20_ohcfxhlo.json", repeat: false),
+                  "https://assets10.lottiefiles.com/packages/lf20_ohcfxhlo.json",
+                  repeat: false),
               onPressed: () {
                 NavigateToScreen.push(context, const NotificationPage());
               },
@@ -45,9 +46,12 @@ class _DashboardPageState extends State<DashboardPage> {
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(children: [
             const Text(Constants.greetingMessage),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.0),
-              child: Image(
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              height: 200,
+              width: MediaQuery.of(context).size.width,
+              child: const Image(
+                fit: BoxFit.fill,
                 image: AssetImage('${Constants.imagePath}/placeholder.png'),
               ),
             ),
@@ -80,7 +84,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                   ],
                 ),
-                Gaps.vGap20,
+                Gaps.vGap10,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[

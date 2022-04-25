@@ -22,7 +22,6 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 8),
       height: widget.height,
       width: widget.width,
       decoration: BoxDecoration(
@@ -30,21 +29,23 @@ class _MenuState extends State<Menu> {
         borderRadius: BorderRadius.circular(6),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              height: 50,
-              width: 50,
-              child: SvgPicture.asset('assets/images/${widget.menuItem.image}',
-                  semanticsLabel: widget.menuItem.title, fit: BoxFit.scaleDown),
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(15),
+              child: Image(
+                image: AssetImage('assets/images/${widget.menuItem.image}'),
+              ),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(100)),
             ),
-            Gaps.vGap20,
+            Gaps.vGap10,
             Text(
               widget.menuItem.title,
               style: const TextStyle(

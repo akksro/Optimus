@@ -101,7 +101,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                   width: width,
                                 ),
                               ),
-                              Gaps.vGap40,
+                              Gaps.vGap10,
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 20.0),

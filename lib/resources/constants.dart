@@ -24,18 +24,18 @@ class Constants {
   static List<Onboarding> onbording = <Onboarding>[
     Onboarding(
       title: "Find friend not just a roommate!",
-      image: '${Constants.imagePath}/onboarding-1.png',
+      image: '${Constants.imagePath}/roomate-search.png',
       description:
           "What fun could we have more than having a roommate with a similar interest.",
     ),
     Onboarding(
       title: "Looking for a safe space to leave",
-      image: '${Constants.imagePath}/onboarding-2.png',
+      image: '${Constants.imagePath}/apartment-search.png',
       description: "We have ample amount of apartment waiting for you.",
     ),
     Onboarding(
       title: "A whole lot of opportunity to find the right things",
-      image: '${Constants.imagePath}/onboarding-3.png',
+      image: '${Constants.imagePath}/features.png',
       description:
           "Provide affordable deals. Discover, chat, reach and settle in a breeze.",
     )
@@ -47,24 +47,24 @@ class Constants {
         description:
             "Are you finding for any roomates? or Looking for any roomates?",
         bgColor: Colours.secondary,
-        image: 'roommates.svg'),
+        image: 'roomate-icon.png'),
     MenuItem(
         title: "Apartment",
         description:
             "Are you finding for any apartment? or Do you have any apartment?",
         bgColor: Colours.secondary,
-        image: 'apartment.svg'),
+        image: 'apartment-icon.png'),
     MenuItem(
         title: "Buy / Sell item",
         description:
             "Do you want to sell your item? or Are you looking to buy some item?",
         bgColor: Colours.secondary,
-        image: 'buy-sell.svg'),
+        image: 'buy-sell-icon.png'),
     MenuItem(
         title: "New Feature",
         description: "Add some nice description which describe the feature",
         bgColor: Colours.secondary,
-        image: 'icon-placeholder.svg')
+        image: 'feature-icon.png')
   ];
 
   static List<BottomBarMenuItems> bottomBarItems = <BottomBarMenuItems>[
