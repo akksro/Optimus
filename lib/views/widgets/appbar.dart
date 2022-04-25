@@ -8,7 +8,7 @@ class Appbar {
       titleTextStyle: const TextStyle(color: Colours.primary),
       automaticallyImplyLeading: true,
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: Colours.primaryBG,
       iconTheme: const IconThemeData(color: Colours.primary),
     );
   }
